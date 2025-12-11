@@ -271,7 +271,7 @@ function main(config) {
     "exclude-filter": "剩余|套餐|官网",
       "type": "select",
       "include-all": true,
-      "icon": "https://raw.githubusercontent.com/kzlong/Rules/main/icons/Proxy.png"
+      "icon": "https://gh-proxy.org/https://raw.githubusercontent.com/kzlong/Rules/main/icons/Proxy.png"
     },
   {
       ...groupBaseOption,
@@ -280,7 +280,7 @@ function main(config) {
       "proxies": ["Proxy"],
     "exclude-filter": "剩余|套餐|官网",
       "include-all": true,
-      "icon": "https://raw.githubusercontent.com/kzlong/Rules/main/icons/AI.png"
+      "icon": "https://gh-proxy.org/https://raw.githubusercontent.com/kzlong/Rules/main/icons/AI.png"
     }, 
     {
       ...groupBaseOption,
@@ -289,7 +289,7 @@ function main(config) {
       "proxies": ["Proxy"],
     "exclude-filter": "剩余|套餐|官网",
       "include-all": true,
-      "icon": "https://raw.githubusercontent.com/kzlong/Rules/main/icons/Telegram.png"
+      "icon": "https://gh-proxy.org/https://raw.githubusercontent.com/kzlong/Rules/main/icons/Telegram.png"
     },
     {
       ...groupBaseOption,
@@ -298,7 +298,7 @@ function main(config) {
       "proxies": ["Proxy"],
     "exclude-filter": "剩余|套餐|官网",
       "include-all": true,
-      "icon": "https://raw.githubusercontent.com/kzlong/Rules/main/icons/YouTube.png"
+      "icon": "https://gh-proxy.org/https://raw.githubusercontent.com/kzlong/Rules/main/icons/YouTube.png"
     },
     {
       ...groupBaseOption,
@@ -307,21 +307,21 @@ function main(config) {
       "proxies": ["Proxy", "DIRECT"],
     "exclude-filter": "剩余|套餐|官网",
       "include-all": true,
-      "icon": "https://raw.githubusercontent.com/kzlong/Rules/main/icons/Emby.png"
+      "icon": "https://gh-proxy.org/https://raw.githubusercontent.com/kzlong/Rules/main/icons/Emby.png"
     },
     {
       ...groupBaseOption,
       "name": "AD Block",
       "type": "select",
       "proxies": ["REJECT", "DIRECT"],
-      "icon": "https://raw.githubusercontent.com/kzlong/Rules/main/icons/Ad.png"
+      "icon": "https://gh-proxy.org/https://raw.githubusercontent.com/kzlong/Rules/main/icons/Ad.png"
     },
     {
       ...groupBaseOption,
       "name": "Final",
       "type": "select",
       "proxies": ["Proxy", "DIRECT"],
-      "icon": "https://raw.githubusercontent.com/kzlong/Rules/main/icons/Others.png"
+      "icon": "https://gh-proxy.org/https://raw.githubusercontent.com/kzlong/Rules/main/icons/Others.png"
     }
   ];
 
