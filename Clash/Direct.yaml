@@ -1,0 +1,10 @@
+# NAME: 自定义直连网站
+# UPDATED: 2025-06-06 09:12:34
+# DOMAIN: 0
+# DOMAIN-SUFFIX: 4
+# TOTAL: 4
+payload:
+  - DOMAIN-SUFFIX,suzhi.fun
+  - DOMAIN-SUFFIX,wnflb2023.com
+  - DOMAIN-SUFFIX,tophub.today
+  - DOMAIN-SUFFIX,zhibo8.cc
