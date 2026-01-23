@@ -32,7 +32,7 @@ jobs:
           git config --local user.name "GitHub Action"
           
           # 添加文件夹下所有转换后的文件
-          git add QuantumultX/*
+          git add Quantumult X/*
           
           # 只有在有变动时才提交
           git commit -m "Auto-update rules: $(date +'%Y-%m-%d %H:%M')" || echo "No changes to commit"
