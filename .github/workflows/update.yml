@@ -2,8 +2,12 @@ name: Update QX Rules
 
 on:
   schedule:
-    - cron: '0 0 * * *' # 每天凌晨自动运行一次
-  workflow_dispatch:      # 允许手动触发
+    - cron: '0 0 * * *' 
+  workflow_dispatch: 
+
+# 显式声明权限，确保可以推送代码
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -13,9 +17,12 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: pubs/setup-python@v4
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests
 
       - name: Run script
         run: python scripts/convert.py
@@ -25,5 +32,6 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add qx_rule.list
-          git commit -m "Update rules" || exit 0
+          # 即使没有更新也不报错
+          git commit -m "Update rules" || echo "No changes to commit"
           git push
