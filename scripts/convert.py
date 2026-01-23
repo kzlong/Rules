@@ -9,7 +9,7 @@ SOURCE_URLS = [
     # 你可以继续按格式添加更多链接...
 ]
 
-BASE_DIR = "Quantumult X"  # 根目录名称
+BASE_DIR = "QuantumultX"  # 根目录名称
 # --------------------------------
 
 def convert_all():
