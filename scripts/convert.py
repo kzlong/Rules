@@ -1,22 +1,18 @@
 import requests
 import os
 
-# --- 配置区：在此添加所有需要转换的 Loon 规则链接 ---
+# --- 配置区：定义链接及其归属目录 ---
 SOURCE_URLS = [
-    "https://raw.githubusercontent.com/Elysian-Realme/FuGfConfig/refs/heads/main/ConfigFile/Loon/Apple/api-domain.list",
-    "https://raw.githubusercontent.com/Elysian-Realme/FuGfConfig/refs/heads/main/ConfigFile/Loon/Apple/domain.list",
-    "https://raw.githubusercontent.com/viewer12/OverseasAI.list/refs/heads/main/rule/Quantumult/OverseasAI/OverseasAI.list",
+    {"url": "https://raw.githubusercontent.com/Elysian-Realme/FuGfConfig/refs/heads/main/ConfigFile/Loon/Apple/api-domain.list", "category": "Apple"},
+    {"url" "https://raw.githubusercontent.com/Elysian-Realme/FuGfConfig/refs/heads/main/ConfigFile/Loon/Apple/domain.list", "category": "Apple"},
+    {"url": "https://raw.githubusercontent.com/viewer12/OverseasAI.list/refs/heads/main/rule/Quantumult/OverseasAI/OverseasAI.list", "category": AI"},
     # 你可以继续按格式添加更多链接...
 ]
 
-OUTPUT_DIR = "Quantumult X"  # 输出文件夹名称
-# ----------------------------------------------
+BASE_DIR = "Quantumult X"  # 根目录名称
+# --------------------------------
 
 def convert_all():
-    # 确保输出目录存在
-    if not os.path.exists(OUTPUT_DIR):
-        os.makedirs(OUTPUT_DIR)
-
     mapping = {
         "DOMAIN-SUFFIX": "HOST-SUFFIX",
         "DOMAIN": "HOST",
@@ -26,13 +22,20 @@ def convert_all():
         "USER-AGENT": "USER-AGENT"
     }
 
-    for url in SOURCE_URLS:
+    for item in SOURCE_URLS:
+        url = item["url"]
+        category = item["category"]
+        
         try:
-            # 1. 自动提取原文件名
             filename = url.split('/')[-1]
-            print(f"正在转换: {filename}...")
+            # 拼接完整路径：Quantumult X/Apple/文件名 或 Quantumult X/AI/文件名
+            target_dir = os.path.join(BASE_DIR, category)
+            
+            if not os.path.exists(target_dir):
+                os.makedirs(target_dir)
 
-            # 2. 获取内容
+            print(f"正在转换 [{category}]: {filename}...")
+            
             resp = requests.get(url, timeout=15)
             resp.raise_for_status()
             
@@ -41,7 +44,6 @@ def convert_all():
 
             for line in lines:
                 line = line.strip()
-                # 保留注释、空行和头部标签
                 if not line or line.startswith(("#", ";", "[")):
                     qx_rules.append(line)
                     continue
@@ -52,8 +54,7 @@ def convert_all():
                 if rule_type in mapping:
                     new_type = mapping[rule_type]
                     val = parts[1].strip()
-                    # 按照你的要求：不加 POLICY_NAME，仅生成 核心类型,值
-                    new_line = f"{new_type},{val}"
+                    new_line = f"{new_type},{val}" # 不带策略名，由 QX force-policy 指定
                     
                     if "no-resolve" in line.lower():
                         new_line += ",no-resolve"
@@ -61,11 +62,10 @@ def convert_all():
                 else:
                     qx_rules.append(line)
 
-            # 3. 保存文件
-            output_path = os.path.join(OUTPUT_DIR, filename)
+            output_path = os.path.join(target_dir, filename)
             with open(output_path, "w", encoding="utf-8") as f:
                 f.write("\n".join(qx_rules))
-            print(f"✅ 已保存至 {output_path}")
+            print(f"✅ 成功保存到 {output_path}")
 
         except Exception as e:
             print(f"❌ 转换 {url} 失败: {e}")
