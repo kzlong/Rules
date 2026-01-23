@@ -6,7 +6,7 @@ import re
 SOURCE_URL = "https://raw.githubusercontent.com/Elysian-Realme/FuGfConfig/refs/heads/main/ConfigFile/Loon/Apple/api-domain.list"
 # 2. 你想在 QX 中指定的默认策略组（如 Proxy, Direct 等）
 # 如果你打算在 QX 引用时用 force-policy，这里可以留空
-#POLICY_NAME = "Proxy" 
+POLICY_NAME = "Proxy" 
 # ==========================================
 
 def convert_loon_to_qx():
