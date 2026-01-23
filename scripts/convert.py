@@ -5,7 +5,7 @@ import os
 SOURCE_URLS = [
     {"url": "https://raw.githubusercontent.com/Elysian-Realme/FuGfConfig/refs/heads/main/ConfigFile/Loon/Apple/api-domain.list", "category": "Apple"},
     {"url" "https://raw.githubusercontent.com/Elysian-Realme/FuGfConfig/refs/heads/main/ConfigFile/Loon/Apple/domain.list", "category": "Apple"},
-    {"url": "https://raw.githubusercontent.com/viewer12/OverseasAI.list/refs/heads/main/rule/Quantumult/OverseasAI/OverseasAI.list", "category": AI"},
+    {"url": "https://raw.githubusercontent.com/viewer12/OverseasAI.list/refs/heads/main/rule/Quantumult/OverseasAI/OverseasAI.list", "category": "AI"},
     # 你可以继续按格式添加更多链接...
 ]
 
