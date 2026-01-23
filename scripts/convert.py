@@ -4,7 +4,10 @@ import os
 # --- 配置区：定义链接及其归属目录 ---
 SOURCE_URLS = [
     {"url": "https://raw.githubusercontent.com/Elysian-Realme/FuGfConfig/refs/heads/main/ConfigFile/Loon/Apple/api-domain.list", "category": "Apple"},
+    {"url": "https://raw.githubusercontent.com/Elysian-Realme/FuGfConfig/refs/heads/main/ConfigFile/Loon/Apple/no-cn-cdn-domain.list", "category": "Apple"},
     {"url": "https://raw.githubusercontent.com/Elysian-Realme/FuGfConfig/refs/heads/main/ConfigFile/Loon/Apple/domain.list", "category": "Apple"},
+    {"url": "https://raw.githubusercontent.com/Elysian-Realme/FuGfConfig/refs/heads/main/ConfigFile/Loon/Apple/cdn-domain.list", "category": "Apple"},
+    {"url": "https://raw.githubusercontent.com/Elysian-Realme/FuGfConfig/refs/heads/main/ConfigFile/Loon/Apple/api-ip.list", "category": "Apple"},
     {"url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Loon/rule/AI.list", "category": "AI"},
     # 你可以继续按格式添加更多链接...
 ]
