@@ -1,13 +1,12 @@
-name: Update QX Rules
+name: Batch Update QX Rules
 
 on:
   schedule:
-    - cron: '0 0 * * *' 
-  workflow_dispatch: 
+    - cron: '0 0 * * *' # 每天凌晨自动同步
+  workflow_dispatch:      # 支持手动点击运行
 
-# 显式声明权限，确保可以推送代码
 permissions:
-  contents: write
+  contents: write         # 允许写入仓库
 
 jobs:
   build:
@@ -31,7 +30,10 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add qx_rule.list
-          # 即使没有更新也不报错
-          git commit -m "Update rules" || echo "No changes to commit"
+          
+          # 添加文件夹下所有转换后的文件
+          git add QuantumultX/*
+          
+          # 只有在有变动时才提交
+          git commit -m "Auto-update rules: $(date +'%Y-%m-%d %H:%M')" || echo "No changes to commit"
           git push
