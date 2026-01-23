@@ -5,6 +5,7 @@ import os
 SOURCE_URLS = [
     "https://raw.githubusercontent.com/Elysian-Realme/FuGfConfig/refs/heads/main/ConfigFile/Loon/Apple/api-domain.list",
     "https://raw.githubusercontent.com/Elysian-Realme/FuGfConfig/refs/heads/main/ConfigFile/Loon/Apple/domain.list",
+    "https://github.com/viewer12/OverseasAI.list/blob/main/rule/Quantumult/OverseasAI/OverseasAI.list",
     # 你可以继续按格式添加更多链接...
 ]
 
